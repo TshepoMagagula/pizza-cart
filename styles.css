@@ -76,3 +76,66 @@ img {
     padding: 1em;
     margin: 1em;
 }
+
+.cart {
+    background-image: url(images/piz.jpg);
+    text-align: center;
+    background-size: cover;
+    background-position: 50% 50%;
+
+}
+
+.addPizzaBtn {
+    font-weight: bolder;
+    font-size: x-large;
+    border: solid;
+    border-radius: 1em;
+    width: 1.5em;
+    border: groove white;
+    color: white;
+    background-color:green;
+    font-weight: bold;
+}
+
+.subPizzaBtn {
+    font-weight: bolder;
+    font-size: x-large;
+    border: solid;
+    border-radius: 1em;
+    width: 1.5em;
+    color: white;
+    background-color:red;
+    font-weight: bold;
+}
+
+span {
+    padding: 1em;
+    margin: 1em;
+}
+
+.orderBtn {
+    border: groove white;
+    height: 40px;
+    width: 170px;
+    color: white;
+    background-color:green;
+    font-weight: bold;
+}
+
+.checkOutBtn {
+    border: groove white;
+    height: 40px;
+    width: 170px;
+    color: white;
+    background-color:#0066ff;
+    font-weight: bold;
+}
+
+.orderPizza {
+    padding-top: 1em;
+    text-align: center;
+}
+
+.totalCost {
+    padding-left: 4.2em;
+}
