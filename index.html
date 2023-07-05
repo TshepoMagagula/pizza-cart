@@ -69,13 +69,16 @@
                     <input class="payAmountTxt" type="text" x-model="payAmount"
                     style="font-size: small;">
                     <div class="orderPizza" style="padding-bottom: 1em;">
-                        <button class="orderBtn" @click="if(payAmount == totalCost){ 
-                            Message=successMessage; }
+                        <button class="orderBtn" @click="if(payAmount >= totalCost){ 
+                            Message=successMessage;
+                            if(payAmount > totalCost){
+                                Message += '. Your Change is R' + (payAmount - totalCost)
+                            } }
                             else{ Message=failMessage; }">Pay</button>
                     </div>        
                 </div>
                 <div x-init="$watch('Message', setInterval(function(){
-                    if(Message == successMessage || Message == failMessage){
+                    if(Message == successMessage){
                         modal = false,
                         totalCost = 0, smallTotal= 0, 
                         mediumTotal= 0, largeTotal= 0,
