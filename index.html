@@ -19,8 +19,9 @@
         <div x-data="{ modal: false, totalCost: 0, smallTotal: 0, 
             mediumTotal: 0, largeTotal: 0,  pizzaTitleS: 'Small', 
             pizzaTitleM: 'Medium', pizzaTitleL: 'Large', Message: '',
-            totalCostTitle: 'Total Cost', successMessage: 'Enjoy your pizza/s',
-            failMessage: 'Sorry- that is not enough money', 
+            totalCostTitle: 'Total Cost', successMessage: 'Enjoy your pizza/s.',
+            failMessage: 'Sorry- that is not enough money.', 
+            succMsgWithChange: ' ',
             payAmount: 0 }">
             <section class="cart" style="padding-bottom: 1em;">
                 <h2 style="text-align: center; border: solid; background-color: whitesmoke;
@@ -72,17 +73,19 @@
                         <button class="orderBtn" @click="if(payAmount == totalCost){ 
                             Message=successMessage;}
                             else if(payAmount > totalCost){ 
-                                Message += successMessage + '. Your Change is R' + (payAmount - totalCost)
+                                succMsgWithChange += successMessage + succMsgWithChange + 'Your change is R' + (payAmount - totalCost);
+                                Message = succMsgWithChange
                             }
                             else{ Message=failMessage; }">Pay</button>
                     </div>        
                 </div>
                 <div x-init="$watch('Message', setInterval(function(){
-                    if(Message == successMessage || Message == successMessage + '. Your Change is R' + (payAmount - totalCost)){
+                    if(Message == successMessage || Message == succMsgWithChange){
                         modal = false,
                         totalCost = 0, smallTotal= 0, 
                         mediumTotal= 0, largeTotal= 0,
-                        Message= '', payAmount= 0 
+                        Message= '', payAmount= 0, 
+                        succMsgWithChange=' '
                     }
                     }, 7000))">
                 </div>
